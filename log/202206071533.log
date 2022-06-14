@@ -1,0 +1,48 @@
+[2022-06-07 15:33:46] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 15:33:46] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 15:33:46] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-07 15:33:46] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 15:33:46] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 15:33:55] [INFO] [Recovery] 2022/06/07 - 15:33:55 panic recovered:
+runtime error: invalid memory address or nil pointer dereference
+C:/install/Dev/Env/Go/src/runtime/panic.go:221 (0xc09b9c)
+	panicmem: }
+C:/install/Dev/Env/Go/src/runtime/signal_windows.go:254 (0xc09b6c)
+	sigpanic: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/golang.org/x/text@v0.3.7/message/print.go:48 (0x1bbbce5)
+	newPrinter: // TODO: cache most of the following call.
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/golang.org/x/text@v0.3.7/message/message.go:113 (0x1bbb5d8)
+	(*Printer).Sprintf: lookupAndFormat(pp, key, a)
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/i18n/i18n.go:86 (0x1bc2af3)
+	Sprintf: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/render.go:42 (0x1bc27e9)
+	Render.Message: if r.code == 200 {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/render.go:57 (0x1bc2f49)
+	Render.Data: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:74 (0x1bc6324)
+	CreatePostgres: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1bc83e7)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x1bc83ce)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1bc850b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1bc84e8)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1bc747a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1bc7466)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1b6bb5d)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x1b6b7e5)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x1b6b344)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0xed459a)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0xecfc47)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0xc24b00)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 

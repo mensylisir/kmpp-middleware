@@ -1,0 +1,1 @@
+[2022-05-30 11:24:00] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/api/v1/ping status_code:200]} 

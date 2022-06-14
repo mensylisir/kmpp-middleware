@@ -1,0 +1,1 @@
+[2022-06-09 16:31:05] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:33.1092ms req_method:POST req_uri:/api/v1/postgres/template status_code:200]} 

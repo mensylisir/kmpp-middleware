@@ -1,0 +1,3 @@
+[2022-05-30 14:13:49] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 14:13:49] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 14:13:49] [ERROR] start phase [&{172.30.1.74 13306 mw root Def@u1tpwd}] failed reason: Dirty database version 2. Fix and force version. (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 118) {map[]} 

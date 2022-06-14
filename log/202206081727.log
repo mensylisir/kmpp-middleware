@@ -1,0 +1,143 @@
+[2022-06-08 17:27:09] [INFO] [Recovery] 2022/06/08 - 17:27:09 panic recovered:
+strconv.Atoi: parsing "": invalid syntax
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x1f969fa)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x1fcb264)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/templates/templates.go:52 (0x1fcb248)
+	Page: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcde27)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x1fcde0e)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcdf4b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1fcdf28)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcceba)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1fccea6)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1f7029d)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x1f6ff25)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x1f6fa84)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x12d459a)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x12cfc47)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x1024b00)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-08 17:27:21] [INFO] [Recovery] 2022/06/08 - 17:27:21 panic recovered:
+runtime error: invalid memory address or nil pointer dereference
+C:/install/Dev/Env/Go/src/runtime/panic.go:221 (0x1009b9c)
+	panicmem: }
+C:/install/Dev/Env/Go/src/runtime/signal_windows.go:254 (0x1009b6c)
+	sigpanic: }
+C:/Users/mensyli1/work/workspace/middleware/src/service/templates/templates.go:59 (0x1e834b8)
+	templatesService.Page: page.Items = templates
+C:/Users/mensyli1/work/workspace/middleware/src/controller/templates/templates.go:58 (0x1fcb2bb)
+	Page: if err != nil {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcde27)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x1fcde0e)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcdf4b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1fcdf28)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcceba)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1fccea6)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1f7029d)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x1f6ff25)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x1f6fa84)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x12d459a)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x12cfc47)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x1024b00)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-08 17:27:31] [INFO] [Recovery] 2022/06/08 - 17:27:31 panic recovered:
+runtime error: invalid memory address or nil pointer dereference
+C:/install/Dev/Env/Go/src/runtime/panic.go:221 (0x1009b9c)
+	panicmem: }
+C:/install/Dev/Env/Go/src/runtime/signal_windows.go:254 (0x1009b6c)
+	sigpanic: }
+C:/Users/mensyli1/work/workspace/middleware/src/service/templates/templates.go:59 (0x1e834b8)
+	templatesService.Page: page.Items = templates
+C:/Users/mensyli1/work/workspace/middleware/src/controller/templates/templates.go:58 (0x1fcb2bb)
+	Page: if err != nil {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcde27)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x1fcde0e)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcdf4b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1fcdf28)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcceba)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1fccea6)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1f7029d)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x1f6ff25)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x1f6fa84)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x12d459a)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x12cfc47)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x1024b00)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-08 17:27:31] [INFO] [Recovery] 2022/06/08 - 17:27:31 panic recovered:
+runtime error: invalid memory address or nil pointer dereference
+C:/install/Dev/Env/Go/src/runtime/panic.go:221 (0x1009b9c)
+	panicmem: }
+C:/install/Dev/Env/Go/src/runtime/signal_windows.go:254 (0x1009b6c)
+	sigpanic: }
+C:/Users/mensyli1/work/workspace/middleware/src/service/templates/templates.go:59 (0x1e834b8)
+	templatesService.Page: page.Items = templates
+C:/Users/mensyli1/work/workspace/middleware/src/controller/templates/templates.go:58 (0x1fcb2bb)
+	Page: if err != nil {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcde27)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x1fcde0e)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcdf4b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1fcdf28)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1fcceba)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1fccea6)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1f7029d)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x1f6ff25)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x1f6fa84)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x12d459a)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x12cfc47)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x1024b00)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-08 17:27:53] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:27:53] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:27:53] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-08 17:27:53] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:27:53] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 

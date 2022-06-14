@@ -1,0 +1,2 @@
+[2022-06-01 11:04:26] [ERROR] gather cluster info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 11:04:56] [ERROR] gather cluster info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 

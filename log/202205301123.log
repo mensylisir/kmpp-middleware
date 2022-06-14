@@ -1,0 +1,8 @@
+[2022-05-30 11:23:36] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 11:23:36] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 11:23:36] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-05-30 11:23:36] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 11:23:36] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 11:23:42] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/addr status_code:404]} 
+[2022-05-30 11:23:45] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/addr status_code:404]} 
+[2022-05-30 11:23:55] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/api/v1/addr status_code:200]} 

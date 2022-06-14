@@ -1,0 +1,6 @@
+[2022-06-13 09:22:30] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-13 09:22:30] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-13 09:22:30] [ERROR] start phase [&{172.30.1.74 13306 mw root Def@u1tpwd}] failed reason: Dirty database version 5. Fix and force version. (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 118) {map[]} 
+[2022-06-13 09:22:43] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-13 09:22:43] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-13 09:22:43] [ERROR] start phase [&{172.30.1.74 13306 mw root Def@u1tpwd}] failed reason: Dirty database version 5. Fix and force version. (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 118) {map[]} 

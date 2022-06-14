@@ -1,0 +1,7 @@
+[2022-06-10 14:16:15] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:523.4µs req_method:GET req_uri:/swagger/swagger.html status_code:404]} 
+[2022-06-10 14:16:26] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/swagger/index.html status_code:200]} 
+[2022-06-10 14:16:26] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/swagger/swagger-ui.css status_code:304]} 
+[2022-06-10 14:16:26] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/swagger/swagger-ui-standalone-preset.js status_code:304]} 
+[2022-06-10 14:16:26] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/swagger/swagger-ui-bundle.js status_code:304]} 
+[2022-06-10 14:16:26] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/swagger/doc.json status_code:500]} 
+[2022-06-10 14:16:39] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:0s req_method:GET req_uri:/swagger/swagger.json status_code:404]} 

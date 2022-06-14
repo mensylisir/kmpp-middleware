@@ -1,0 +1,1084 @@
+definitions:
+  entity.Cluster:
+    properties:
+      Status:
+        type: string
+      api_server:
+        type: string
+      createdAt:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      token:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      user_id:
+        type: string
+      version:
+        type: string
+    type: object
+  entity.ClusterPage:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/entity.Cluster'
+        type: array
+      total:
+        type: integer
+    type: object
+  entity.Instance:
+    properties:
+      cluster:
+        $ref: '#/definitions/model.Cluster'
+      cluster_id:
+        type: string
+      count:
+        type: integer
+      createdAt:
+        type: string
+      id:
+        type: string
+      limit_cpu:
+        type: string
+      limit_memory:
+        type: string
+      name:
+        type: string
+      namespace:
+        type: string
+      request_cpu:
+        type: string
+      request_memory:
+        type: string
+      secret:
+        items:
+          $ref: '#/definitions/entity.SecretInfo'
+        type: array
+      service_info:
+        $ref: '#/definitions/entity.ServiceInfo'
+      status:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      user_id:
+        type: string
+      volume:
+        type: string
+      yaml:
+        type: string
+    type: object
+  entity.InstancePage:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/entity.Instance'
+        type: array
+      total:
+        type: integer
+    type: object
+  entity.LoginProfile:
+    properties:
+      captcha_id:
+        type: string
+      code:
+        type: string
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  entity.Page:
+    properties:
+      items: {}
+      total:
+        type: integer
+    type: object
+  entity.PodCondition:
+    properties:
+      message:
+        type: string
+      reason:
+        type: string
+      status:
+        type: string
+    type: object
+  entity.PodStatus:
+    properties:
+      conditions:
+        items:
+          $ref: '#/definitions/entity.PodCondition'
+        type: array
+      name:
+        type: string
+      phase:
+        type: string
+    type: object
+  entity.Postgres:
+    properties:
+      cluster:
+        $ref: '#/definitions/entity.Cluster'
+      cluster_id:
+        type: string
+      name:
+        type: string
+      namespace:
+        type: string
+      type:
+        type: string
+      user_id:
+        type: string
+    type: object
+  entity.Profile:
+    properties:
+      access_token:
+        type: string
+      refresh_token:
+        type: string
+      user:
+        $ref: '#/definitions/entity.User'
+    type: object
+  entity.SecretInfo:
+    properties:
+      data:
+        additionalProperties:
+          type: string
+        type: object
+      name:
+        type: string
+    type: object
+  entity.ServiceAddr:
+    properties:
+      host:
+        type: string
+      port:
+        type: integer
+    type: object
+  entity.ServiceInfo:
+    properties:
+      addresses:
+        items:
+          $ref: '#/definitions/entity.ServiceAddr'
+        type: array
+      service_type:
+        type: string
+    type: object
+  entity.Templates:
+    properties:
+      advance_template:
+        type: string
+      base_template:
+        type: string
+      createdAt:
+        type: string
+      icon:
+        items:
+          type: integer
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  entity.User:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      role:
+        type: integer
+      roles:
+        items:
+          type: string
+        type: array
+      type:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  entity.UserChangePassword:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      original:
+        type: string
+      password:
+        type: string
+    type: object
+  model.Cluster:
+    properties:
+      Status:
+        type: string
+      api_server:
+        type: string
+      createdAt:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      token:
+        type: string
+      type:
+        type: string
+      updatedAt:
+        type: string
+      version:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /api/v1/auth/login/:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.LoginProfile'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Profile'
+      tags:
+      - 登录
+  /api/v1/auth/logout/:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses: {}
+      tags:
+      - 登出
+  /api/v1/auth/refresh/:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Profile'
+      tags:
+      - 刷新token
+  /api/v1/auth/register/:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.User'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Profile'
+      tags:
+      - 注册
+  /api/v1/cluster:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 用户ID
+        in: query
+        name: user_id
+        required: true
+        type: string
+      - description: 集群名称
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 根据用户ID和集群名称删除集群
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 集群名
+        in: query
+        name: cluster_name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Cluster'
+      tags:
+      - 根据集群名获取集群
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Cluster'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 根据集群名获取集群
+  /api/v1/clusters:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: 长度
+        in: query
+        name: size
+        required: true
+        type: string
+      - description: 用户ID
+        in: query
+        name: user_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.ClusterPage'
+      tags:
+      - 根据用户获取集群
+  /api/v1/clusters/:cluster_id:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 集群ID
+        in: query
+        name: cluster_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Cluster'
+      tags:
+      - 根据集群ID获取集群
+  /api/v1/instances:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 实例name
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Instance'
+      tags:
+      - 根据实例名获取实例
+  /api/v1/instances/:instance_id:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 实例ID
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Instance'
+      tags:
+      - 根据实例ID获取实例
+  /api/v1/pod/log:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 集群ID
+        in: query
+        name: cluster_id
+        required: true
+        type: string
+      - description: 命名空间
+        in: query
+        name: namespace
+        required: true
+        type: string
+      - description: pod名称
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      tags:
+      - 获取Pod的日志
+  /api/v1/pod/status:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 集群ID
+        in: query
+        name: cluster_id
+        required: true
+        type: string
+      - description: 命名空间
+        in: query
+        name: namespace
+        required: true
+        type: string
+      - description: pod名称
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.PodStatus'
+      tags:
+      - 获取Pod的状态
+  /api/v1/pods:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 集群ID
+        in: query
+        name: cluster_id
+        required: true
+        type: string
+      - description: 命名空间
+        in: query
+        name: namespace
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+      tags:
+      - 根据namespace下所有Pod名称
+  /api/v1/pods/status:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 集群ID
+        in: query
+        name: cluster_id
+        required: true
+        type: string
+      - description: 命名空间
+        in: query
+        name: namespace
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/entity.PodStatus'
+            type: array
+      tags:
+      - 根据namespace获取其所有Pod的状态
+  /api/v1/postgres:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 实例名
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 删除实例
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: postgresql实例名称
+        in: query
+        name: instance_name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Instance'
+      tags:
+      - 根据postgresql名称获取postgres对象
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Instance'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 更新实例
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Instance'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 创建postgres实例
+  /api/v1/postgres/:postgres_id:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: postgresql实例ID
+        in: query
+        name: postgres_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Instance'
+      tags:
+      - 根据postgresql ID获取postgres对象
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Instance'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 编辑实例
+  /api/v1/postgres/:postgres_id/status:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: postgresql实例ID
+        in: query
+        name: postgres_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 根据postgresql ID获取postgres状态
+  /api/v1/postgres/template:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Postgres'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 从模板创建postgres实例
+  /api/v1/postgressqls:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: 长度
+        in: query
+        name: size
+        required: true
+        type: string
+      - description: 用户ID
+        in: query
+        name: user_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.InstancePage'
+      tags:
+      - 根据用户ID获取postgres实例列表
+  /api/v1/template:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 模板类型
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 删除模板
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 中间件类型
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Templates'
+      tags:
+      - 使用中间件类型获取模板
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Templates'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Templates'
+      tags:
+      - 更新模板
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Templates'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Templates'
+      tags:
+      - 创建模板
+  /api/v1/template/:template_id:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 中间件ID
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Templates'
+      tags:
+      - 使用中间件ID获取模板
+  /api/v1/templates:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: 长度
+        in: query
+        name: size
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Page'
+      tags:
+      - 获取所有模板
+  /api/v1/user:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 用户名
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 删除用户
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 用户名
+        in: query
+        name: name
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.User'
+      tags:
+      - 根据用户名获取用户对象
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.User'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.User'
+      tags:
+      - 更新用户
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.User'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.User'
+      tags:
+      - 创建用户
+  /api/v1/user/:user_id:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 用户id
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.User'
+      tags:
+      - 根据用户ID获取用户对象
+  /api/v1/user/password:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.UserChangePassword'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 修改用户密码
+  /api/v1/users:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: 长度
+        in: query
+        name: size
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.Page'
+      tags:
+      - 根据用户ID获取用户对象
+swagger: "2.0"

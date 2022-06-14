@@ -1,0 +1,19 @@
+[2022-06-01 09:35:00] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:03] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:06] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:09] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:12] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:15] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:18] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:21] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:24] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:27] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:30] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:33] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:36] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:39] [ERROR] gather host info error: Error 1205: Lock wait timeout exceeded; try restarting transaction (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-01 09:35:42] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-01 09:35:42] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-01 09:35:42] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-01 09:35:42] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-01 09:35:42] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 

@@ -1,0 +1,4 @@
+[2022-06-13 09:21:59] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-13 09:21:59] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-13 09:21:59] [ERROR] start phase [&{172.30.1.74 13306 mw root Def@u1tpwd}] failed reason: migration failed in line 0: alter table rdev_instance
+    add template_id varchar(64) null; (details: Error 1060: Duplicate column name 'template_id') (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 118) {map[]} 

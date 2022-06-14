@@ -1,0 +1,10 @@
+[2022-06-07 16:44:32] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 16:44:32] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 16:44:32] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-07 16:44:32] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 16:44:32] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-07 16:44:37] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:44:42] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:44:47] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:44:52] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:44:57] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 

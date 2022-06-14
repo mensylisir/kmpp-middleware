@@ -1,0 +1,2 @@
+[2022-06-10 15:58:07] [ERROR] gather postgres info error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-10 15:58:12] [ERROR] gather postgres info error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 

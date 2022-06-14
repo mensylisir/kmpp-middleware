@@ -1,0 +1,36 @@
+app:
+  run_mode: 'release'
+bind:
+  host: 0.0.0.0
+  port: 8082
+  cert_file: ''
+  key_file: ''
+  print_access_log: true
+  pprof: false
+  shutdown_timeout: 30
+  max_content_length: 67108864
+  read_timeout: 20
+  write_timeout: 40
+  idle_timeout: 120
+  read_buffer_size: 1024
+  write_buffer_size: 1024
+logging:
+  level: info
+  path: 'C:\Users\mensyli1\work\workspace\middleware\log\'
+db:
+  host: 172.30.1.74
+  port: 13306
+  user: root
+  password: Def@u1tpwd
+  name: mw
+  max_open_conns: 2000
+  max_idle_conns: 10
+jwt:
+  secret: iXDgDaEYBzIzustW
+  exp: 480
+  refreshExp: 580
+cron:
+  enable: true
+encrypt:
+  multilevel: 4
+  key: aaaaaaaaaaaaaaaa

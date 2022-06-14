@@ -1,0 +1,1 @@
+[2022-06-07 15:11:17] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:2.4127ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 

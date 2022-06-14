@@ -1,0 +1,6 @@
+[2022-06-07 16:45:02] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:45:07] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:45:12] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:45:17] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:45:22] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-07 16:45:27] [ERROR] gather postgres info error: Error 1146: Table 'mw.rdev_' doesn't exist (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 

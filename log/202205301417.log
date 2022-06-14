@@ -1,0 +1,22 @@
+[2022-05-30 14:17:23] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 14:17:23] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-05-30 14:17:23] [ERROR] start phase [&{172.30.1.74 13306 mw root Def@u1tpwd}] failed reason: migration failed in line 0: INSERT INTO `mw`.`rdev_user`(`created_at`,
+                             `updated_at`,
+                             `id`,
+                             `name`,
+                             `password`,
+                             `is_active`,
+                             `is_admin`,
+                             `type`,
+                             `role`)
+VALUES (date_add(now(), interval 8 HOUR),
+        date_add(now(), interval 8 HOUR),
+        ''5e81095f-3c0c-4cb2-8033-bde03d60135c'',
+        ''admin'',
+        ''Pb4BAQEBAQHH2XmOtIOlsIViX4E8vnrkYHoWEi6lUFo='',
+        1,
+        1,
+        ''admin'',
+        ''admin''); (details: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '5e81095f-3c0c-4cb2-8033-bde03d60135c'',
+        ''admin'',
+        ''Pb4BAQEBA' at line 12) (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 118) {map[]} 

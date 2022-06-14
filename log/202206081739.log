@@ -1,0 +1,76 @@
+[2022-06-08 17:39:31] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:39:31] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:39:31] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-08 17:39:31] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:39:31] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 17:39:38] [INFO] [Recovery] 2022/06/08 - 17:39:38 panic recovered:
+reflect: reflect.Value.Set using unaddressable value
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/yaml.go:249 (0xa4be44)
+	handleErr: }
+C:/install/Dev/Env/Go/src/runtime/panic.go:1047 (0x229d21)
+	gopanic: } else {
+C:/install/Dev/Env/Go/src/reflect/value.go:262 (0x2a03dc)
+	flag.mustBeAssignableSlow: }
+C:/install/Dev/Env/Go/src/reflect/value.go:249 (0x2a02ed)
+	flag.mustBeAssignable: }
+C:/install/Dev/Env/Go/src/reflect/value.go:1912 (0x2a92c4)
+	Value.Set: x.mustBeExported() // do not let unexported x leak
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:437 (0xa19b04)
+	(*decoder).scalar: return true
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:370 (0xa190d8)
+	(*decoder).unmarshal: case mappingNode:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:767 (0xa1d9c8)
+	(*decoder).mappingStruct: } else if sinfo.InlineMap != -1 {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:626 (0xa1c0a5)
+	(*decoder).mapping: case reflect.Slice:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:372 (0xa19056)
+	(*decoder).unmarshal: case sequenceNode:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:767 (0xa1d9c8)
+	(*decoder).mappingStruct: } else if sinfo.InlineMap != -1 {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:626 (0xa1c0a5)
+	(*decoder).mapping: case reflect.Slice:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:372 (0xa19056)
+	(*decoder).unmarshal: case sequenceNode:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:767 (0xa1d9c8)
+	(*decoder).mappingStruct: } else if sinfo.InlineMap != -1 {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:626 (0xa1c0a5)
+	(*decoder).mapping: case reflect.Slice:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:372 (0xa19056)
+	(*decoder).unmarshal: case sequenceNode:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:384 (0xa19247)
+	(*decoder).document: return true
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/decode.go:360 (0xa18ed8)
+	(*decoder).unmarshal: case aliasNode:
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/yaml.go:148 (0xa4b775)
+	unmarshal: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/gopkg.in/yaml.v2@v2.4.0/yaml.go:81 (0xa4af19)
+	Unmarshal: }
+C:/Users/mensyli1/work/workspace/middleware/src/service/postgresql/postgresql.go:170 (0x18e9904)
+	postgresService.Create: if err != nil {
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:84 (0x1ac51c1)
+	Create: if err != nil {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1a2411c)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x1acad4e)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1a2411c)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1acadda)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1a2411c)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1ac91a4)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x1a2411c)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x1a32513)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x1a3201a)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x692e39)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x68c977)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x2589c0)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 

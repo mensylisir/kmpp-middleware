@@ -1,0 +1,33 @@
+[2022-06-08 17:43:10] [INFO] [Recovery] 2022/06/08 - 17:43:10 panic recovered:
+postgresql.acid.zalan.do "postgres" is invalid: [spec.resources.limits.memory: Invalid value: "": spec.resources.limits.memory in body should match '^(\d+(e\d+)?|\d+(\.\d+)?(e\d+)?[EPTGMK]i?)$', spec.resources.limits.cpu: Invalid value: "": spec.resources.limits.cpu in body should match '^(\d+m|\d+(\.\d{1,3})?)$', spec.resources.requests.cpu: Invalid value: "": spec.resources.requests.cpu in body should match '^(\d+m|\d+(\.\d{1,3})?)$', spec.resources.requests.memory: Invalid value: "": spec.resources.requests.memory in body should match '^(\d+(e\d+)?|\d+(\.\d+)?(e\d+)?[EPTGMK]i?)$', spec.postgresql.version: Unsupported value: "": supported values: "9.5", "9.6", "10", "11", "12", "13", "14"]
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x23f8cea)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x243f2bb)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:86 (0x24451c9)
+	Create: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x23a40bc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/jwt.go:19 (0x244acee)
+	Auth.func1: 
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x23a40bc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x244ad7a)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x23a40bc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x2449144)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/context.go:165 (0x23a40bc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:489 (0x23b24b3)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.4/gin.go:445 (0x23b1fba)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x1012e39)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x100c977)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0xbd89c0)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 

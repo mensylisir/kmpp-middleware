@@ -1,0 +1,6 @@
+[2022-06-06 16:34:41] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:2.1064ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 
+[2022-06-06 16:34:42] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:2.0629ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 
+[2022-06-06 16:34:43] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:1.995ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 
+[2022-06-06 16:34:43] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:2.0002ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 
+[2022-06-06 16:34:47] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:2.2097ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 
+[2022-06-06 16:34:48] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:2.3164ms req_method:GET req_uri:/api/v1/cluster?cluster_name=mm status_code:200]} 

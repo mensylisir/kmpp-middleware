@@ -1,0 +1,12 @@
+[2022-06-08 15:10:39] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 15:10:39] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 121) {map[]} 
+[2022-06-08 15:10:40] [ERROR] start phase [&{172.30.1.74 13306 mw root Def@u1tpwd}] failed reason: migration failed in line 0: CREATE TABLE IF NOT EXISTS rdev_templates
+(
+    `created_at` datetime     DEFAULT NULL,
+    `updated_at` datetime     DEFAULT NULL,
+    id    varchar(64) not null primary key,
+    name  varchar(64) not null,
+    icon  blob not null,
+    base_template text  not null,
+    advance_template text not null,
+); (details: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 10) (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 118) {map[]} 

@@ -1,0 +1,2 @@
+[2022-06-06 16:52:27] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:12.2204ms req_method:GET req_uri:/api/v1/clusters?page=1&size=100&user_id=5e81095f-3c0c-4cb2-8033-bde03d60135c status_code:200]} 
+[2022-06-06 16:52:37] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:127.0.0.1 latency_time:3.8207ms req_method:GET req_uri:/api/v1/clusters?page=1&size=100&user_id=5e81095f-3c0c-4cb2-8033-bde03d60135c status_code:200]} 
