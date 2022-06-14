@@ -76,6 +76,8 @@ func (c instanceService) getPageForUser(num, size int, userID string) (*entity.I
 
 	if err := db.DB.Model(&model.Instance{}).
 		Where("id in (?)", instanceIds).
+		Preload("Cluster").
+		Preload("Template").
 		Count(&page.Total).
 		Offset((num - 1) * size).
 		Limit(size).
@@ -100,6 +102,8 @@ func (c instanceService) getPageForAdmin(num, size int) (*entity.InstancePage, e
 	)
 
 	if err := db.DB.Model(&model.Instance{}).
+		Preload("Cluster").
+		Preload("Template").
 		Count(&page.Total).
 		Offset((num - 1) * size).
 		Limit(size).

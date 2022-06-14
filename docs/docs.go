@@ -304,7 +304,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/instances": {
+        "/api/v1/instance/": {
             "get": {
                 "consumes": [
                     "application/json"
@@ -333,6 +333,54 @@ const docTemplate = `{
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/entity.Instance"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/instances": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "根据用户获取实例"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Bearer 31a165baebe6dec616b1f8f3207b4273",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "页码",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "长度",
+                        "name": "size",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户ID",
+                        "name": "user_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/entity.InstancePage"
                         }
                     }
                 }
@@ -854,6 +902,39 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/entity.InstancePage"
                         }
+                    }
+                }
+            }
+        },
+        "/api/v1/svc": {
+            "patch": {
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "更新ServiceType"
+                ],
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Bearer 31a165baebe6dec616b1f8f3207b4273",
+                        "name": "Authorization",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "request",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/entity.Instance"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
                     }
                 }
             }
@@ -1399,7 +1480,16 @@ const docTemplate = `{
                 "service_info": {
                     "$ref": "#/definitions/entity.ServiceInfo"
                 },
+                "service_type": {
+                    "type": "string"
+                },
                 "status": {
+                    "type": "string"
+                },
+                "template": {
+                    "$ref": "#/definitions/model.Templates"
+                },
+                "template_id": {
                     "type": "string"
                 },
                 "type": {
@@ -1672,6 +1762,35 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.Templates": {
+            "type": "object",
+            "properties": {
+                "advance_template": {
+                    "type": "string"
+                },
+                "base_template": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "icon": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "updatedAt": {
                     "type": "string"
                 }
             }

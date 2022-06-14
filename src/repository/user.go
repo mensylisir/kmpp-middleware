@@ -81,6 +81,11 @@ func (u userRepository) Batch(operation string, items []model.User) error {
 	switch operation {
 	case constant.BatchOperationDelete:
 		tx := db.DB.Begin()
+		defer func() {
+			if r := recover(); r != nil {
+				tx.Rollback()
+			}
+		}()
 		for _, item := range items {
 			err := tx.Delete(&item).Error
 			if err != nil {

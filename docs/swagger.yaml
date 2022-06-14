@@ -61,7 +61,13 @@ definitions:
         type: array
       service_info:
         $ref: '#/definitions/entity.ServiceInfo'
+      service_type:
+        type: string
       status:
+        type: string
+      template:
+        $ref: '#/definitions/model.Templates'
+      template_id:
         type: string
       type:
         type: string
@@ -239,6 +245,25 @@ definitions:
       updatedAt:
         type: string
       version:
+        type: string
+    type: object
+  model.Templates:
+    properties:
+      advance_template:
+        type: string
+      base_template:
+        type: string
+      createdAt:
+        type: string
+      icon:
+        items:
+          type: integer
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      updatedAt:
         type: string
     type: object
 info:
@@ -430,7 +455,7 @@ paths:
             $ref: '#/definitions/entity.Cluster'
       tags:
       - 根据集群ID获取集群
-  /api/v1/instances:
+  /api/v1/instance/:
     get:
       consumes:
       - application/json
@@ -452,6 +477,38 @@ paths:
             $ref: '#/definitions/entity.Instance'
       tags:
       - 根据实例名获取实例
+  /api/v1/instances:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: 页码
+        in: query
+        name: page
+        required: true
+        type: string
+      - description: 长度
+        in: query
+        name: size
+        required: true
+        type: string
+      - description: 用户ID
+        in: query
+        name: user_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/entity.InstancePage'
+      tags:
+      - 根据用户获取实例
   /api/v1/instances/:instance_id:
     get:
       consumes:
@@ -792,6 +849,27 @@ paths:
             $ref: '#/definitions/entity.InstancePage'
       tags:
       - 根据用户ID获取postgres实例列表
+  /api/v1/svc:
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: Bearer 31a165baebe6dec616b1f8f3207b4273
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/entity.Instance'
+      responses:
+        "200":
+          description: ""
+      tags:
+      - 更新ServiceType
   /api/v1/template:
     delete:
       consumes:

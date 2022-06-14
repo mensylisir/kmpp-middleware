@@ -129,6 +129,11 @@ func (c postgresService) Save(instance entity.Instance) error {
 	loginfo, _ := json.Marshal(instance)
 	logger.Log.WithFields(logrus.Fields{"instance_info": string(loginfo)}).Debugf("start to add the instance %s", instance.Name)
 	tx := db.DB.Begin()
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
 	modelInstance := model.Instance{
 		Name:          instance.Name,
 		Type:          constant.POSTGRESQL,
@@ -181,8 +186,7 @@ func (c postgresService) Save(instance entity.Instance) error {
 		tx.Rollback()
 		return fmt.Errorf("can not create postgres%s", err.Error())
 	}
-	tx.Commit()
-	return nil
+	return tx.Commit().Error
 }
 
 func (c postgresService) Create(postgres entity.Postgres) (string, error) {
@@ -212,6 +216,11 @@ func (c postgresService) Create(postgres entity.Postgres) (string, error) {
 		return "", err
 	}
 	tx := db.DB.Begin()
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
 	modelInstance := model.Instance{
 		Name:          postgres.Name,
 		Type:          constant.POSTGRESQL,
@@ -245,8 +254,8 @@ func (c postgresService) Create(postgres entity.Postgres) (string, error) {
 		tx.Rollback()
 		return "", fmt.Errorf("can not create postgres%s", err.Error())
 	}
-	tx.Commit()
-	return modelInstance.ID, nil
+	err = tx.Commit().Error
+	return modelInstance.ID, err
 }
 
 func (c postgresService) Sync(name string) (entity.Instance, error) {
@@ -264,10 +273,7 @@ func (c postgresService) Sync(name string) (entity.Instance, error) {
 		return entity.Instance{Instance: instance}, err
 	}
 	inst.Instance.Cluster = clusterModel.Cluster
-	tx := db.DB.Begin()
-
 	if err := kubernetes.GatherPostgresStatus(&inst); err != nil {
-		tx.Rollback()
 		return inst, err
 	}
 	err = c.instanceRepo.Update(instance.ID, map[string]interface{}{
@@ -280,6 +286,21 @@ func (c postgresService) Sync(name string) (entity.Instance, error) {
 }
 
 func (c postgresService) Delete(name string) error {
+	instance, err := c.instanceRepo.Get(name)
+	if err != nil {
+		return err
+	}
+	clusterObj, err := c.clusterService.GetByID(instance.ClusterID)
+	if err != nil {
+		return err
+	}
+	instance.Cluster = clusterObj.Cluster
+	instanceEntity := entity.Instance{}
+	instanceEntity.Instance = instance
+	err = kubernetes.DeletePostgres(&instanceEntity)
+	if err != nil {
+		return err
+	}
 	return c.instanceRepo.Delete(name)
 }
 

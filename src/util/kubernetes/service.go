@@ -2,10 +2,13 @@ package kubernetes
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
 	"github.com/mensylisir/kmpp-middleware/src/db"
 	"github.com/mensylisir/kmpp-middleware/src/entity"
 	"github.com/mensylisir/kmpp-middleware/src/model"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/types"
 	"strings"
 )
 
@@ -40,7 +43,7 @@ func GetServiceInfo(instance *entity.Instance) (*entity.ServiceInfo, error) {
 		for _, pt := range svc.Spec.Ports {
 			address := entity.ServiceAddr{}
 			address.Host = strings.Split(cluster.ApiServer, ":")[0]
-			address.Port = pt.Port
+			address.Port = pt.NodePort
 			addresses = append(addresses, address)
 		}
 	}
@@ -48,9 +51,27 @@ func GetServiceInfo(instance *entity.Instance) (*entity.ServiceInfo, error) {
 	return &serviceInfo, nil
 }
 
+func EditServiceType(instance *entity.Instance) error {
+	client, err := NewKubernetesClient(&Config{
+		ApiServer: instance.Cluster.ApiServer,
+		Token:     instance.Cluster.Token,
+	})
+	if err != nil {
+		return err
+	}
+
+	patches := fmt.Sprintf("{\"spec\": {\"type\": \"%s\"}}", instance.ServiceType)
+	payloadBYtes, err := json.Marshal(patches)
+	if err != nil {
+		return err
+	}
+	_, err = client.CoreV1().Services(instance.Namespace).Patch(context.TODO(), instance.Name, types.StrategicMergePatchType, payloadBYtes, metav1.PatchOptions{})
+	return err
+}
+
 func getCluster(instance *entity.Instance) (*model.Cluster, error) {
 	var cluster model.Cluster
-	if err := db.DB.Where("id = ?", instance.ID).First(&cluster).Error; err != nil {
+	if err := db.DB.Where("id = ?", instance.ClusterID).First(&cluster).Error; err != nil {
 		return nil, err
 	}
 	return &cluster, nil

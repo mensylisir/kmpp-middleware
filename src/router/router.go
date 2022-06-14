@@ -9,6 +9,7 @@ import (
 	"github.com/mensylisir/kmpp-middleware/src/controller/instance"
 	"github.com/mensylisir/kmpp-middleware/src/controller/pod"
 	"github.com/mensylisir/kmpp-middleware/src/controller/postgres"
+	"github.com/mensylisir/kmpp-middleware/src/controller/svc"
 	"github.com/mensylisir/kmpp-middleware/src/controller/templates"
 	"github.com/mensylisir/kmpp-middleware/src/controller/user"
 	"github.com/mensylisir/kmpp-middleware/src/util/aop"
@@ -107,6 +108,8 @@ func configHttpRouter(rg *gin.RouterGroup, version string) {
 	//rg.DELETE("/postgres", aop.Auth(), postgres.Delete)
 	//rg.POST("/postgres/:postgres_id", aop.Auth(), postgres.Edit)
 
+	//rg.PATCH("/svc", aop.Auth(), svc.UpdateServiceType)
+
 	rg.POST("/auth/login", auth.Login)
 	rg.POST("/auth/register", auth.Register)
 	rg.POST("/auth/refresh", auth.Refresh)
@@ -152,4 +155,5 @@ func configHttpRouter(rg *gin.RouterGroup, version string) {
 	rg.DELETE("/postgres", postgres.Delete)
 	rg.POST("/postgres/:postgres_id", postgres.Edit)
 
+	rg.PATCH("/svc", svc.UpdateServiceType)
 }

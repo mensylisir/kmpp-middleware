@@ -1,0 +1,7 @@
+[2022-06-14 09:13:13] [ERROR] instance of mtest7-aaa not found error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/service/postgresql.postgresService.Sync: 255) {map[]} 
+[2022-06-14 09:13:13] [ERROR] gather postgres info error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-14 09:13:13] [ERROR] instance of myhh-456 not found error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/service/postgresql.postgresService.Sync: 255) {map[]} 
+[2022-06-14 09:13:13] [ERROR] gather postgres info error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-14 09:13:13] [ERROR] instance of myhh-123 not found error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/service/postgresql.postgresService.Sync: 255) {map[]} 
+[2022-06-14 09:13:13] [ERROR] gather postgres info error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 
+[2022-06-14 09:13:13] [ERROR] gather postgres info error: Error 1040: Too many connections (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 

@@ -6,6 +6,7 @@ type Instance struct {
 	model.Instance
 	UserId      string       `json:"user_id"`
 	ServiceInfo ServiceInfo  `json:"service_info"`
+	ServiceType string       `json:"service_type"`
 	Secret      []SecretInfo `json:"secret"`
 	Yaml        string       `json:"yaml"`
 }

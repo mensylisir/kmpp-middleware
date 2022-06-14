@@ -78,6 +78,11 @@ func (c clusterService) Import(clusterImport entity.Cluster) error {
 	clusterImport.ApiServer = strings.Replace(clusterImport.ApiServer, "http://", "", -1)
 	clusterImport.ApiServer = strings.Replace(clusterImport.ApiServer, "https://", "", -1)
 	tx := db.DB.Begin()
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
 	cluster := model.Cluster{
 		Name:      clusterImport.Name,
 		ApiServer: clusterImport.ApiServer,
@@ -108,8 +113,7 @@ func (c clusterService) Import(clusterImport entity.Cluster) error {
 			return fmt.Errorf("can not import cluster%s", err.Error())
 		}
 	}
-	tx.Commit()
-	return nil
+	return tx.Commit().Error
 }
 
 func (c clusterService) Sync(name string) (entity.Cluster, error) {
@@ -121,6 +125,11 @@ func (c clusterService) Sync(name string) (entity.Cluster, error) {
 	var entityCluster entity.Cluster
 	entityCluster.Cluster = cluster
 	tx := db.DB.Begin()
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
 	if err := kubernetes.GatherClusterInfo(&entityCluster); err != nil {
 		tx.Rollback()
 		return entityCluster, err
@@ -131,8 +140,8 @@ func (c clusterService) Sync(name string) (entity.Cluster, error) {
 		tx.Rollback()
 		return entityCluster, err.Error
 	}
-	tx.Commit()
-	return entityCluster, nil
+	err = tx.Commit().Error
+	return entityCluster, err
 }
 
 func (c clusterService) Delete(userId, name string) error {

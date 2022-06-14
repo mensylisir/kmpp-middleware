@@ -82,7 +82,7 @@ func GetInstanceByID(ctx *gin.Context) {
 // @Param Authorization	header string true "Bearer 31a165baebe6dec616b1f8f3207b4273"
 // @Param   name     query    string     true        "实例name"
 // @Success 200 {object} entity.Instance
-// @Router /api/v1/instances [get]
+// @Router /api/v1/instance/ [get]
 func GetInstanceByName(ctx *gin.Context) {
 	instanceName := ctx.Query("name")
 	instanceObj, err := instanceController.InstanceService.Get(instanceName)

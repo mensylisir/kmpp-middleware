@@ -1,0 +1,35 @@
+[2022-06-14 10:07:05] [INFO] [Recovery] 2022/06/14 - 10:07:05 panic recovered:
+runtime error: invalid memory address or nil pointer dereference
+C:/install/Dev/Env/Go/src/runtime/panic.go:221 (0x29d77c)
+	panicmem: }
+C:/install/Dev/Env/Go/src/runtime/signal_windows.go:254 (0x29d74c)
+	sigpanic: }
+C:/Users/mensyli1/work/workspace/middleware/src/util/kubernetes/postgres_instance.go:70 (0x11b9c40)
+	CreatePostgresFromTemplate: postgresql.Namespace = instance.Namespace
+C:/Users/mensyli1/work/workspace/middleware/src/service/postgresql/postgresql.go:214 (0x11c5150)
+	postgresService.Create: if err != nil {
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:149 (0x135e534)
+	Create: if err != nil {
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x13618ab)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x1361888)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x136093a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1360926)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x129b670)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x129b2d8)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x129ae11)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x571d7a)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x56d427)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x2bab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-14 10:07:40] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:15.6561ms req_method:GET req_uri:/api/v1/clusters?page=1&size=1000&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 
+[2022-06-14 10:07:40] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:2.1071ms req_method:GET req_uri:/api/v1/template?name=postgres status_code:200]} 
