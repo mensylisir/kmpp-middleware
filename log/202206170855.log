@@ -1,0 +1,34 @@
+[2022-06-17 08:55:14] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:36.9983ms req_method:GET req_uri:/api/v1/instances?page=1&size=15&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 
+[2022-06-17 08:55:19] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:16.7837ms req_method:GET req_uri:/api/v1/instances?page=1&size=15&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 
+[2022-06-17 08:55:29] [ERROR] gather cluster info error: Get "https://192.168.111.100:6443/version?timeout=32s": dial tcp 192.168.111.100:6443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 
+[2022-06-17 08:55:37] [INFO] [Recovery] 2022/06/17 - 08:55:37 panic recovered:
+Get "https://192.168.111.100:6443/apis/acid.zalan.do/v1/namespaces/mtest7/postgresqls/mtest7-123": dial tcp 192.168.111.100:6443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x11cbe3a)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x120c964)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:269 (0x120c949)
+	GetStatus: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x120b14b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x120b128)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x1209e7a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1209e66)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x113e0b0)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x113dd18)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x113d851)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x4129da)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x40e087)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x15ab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-17 08:55:59] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:42.972822s req_method:GET req_uri:/api/v1/postgres/fbb1eece-380b-420f-ae83-8c9e8cd122ec status_code:200]} 
+[2022-06-17 08:55:59] [ERROR] gather cluster info error: Get "https://192.168.111.100:6443/version?timeout=32s": dial tcp 192.168.111.100:6443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchClusterInfo).Run.func1: 34) {map[]} 

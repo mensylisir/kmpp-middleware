@@ -1,0 +1,32 @@
+[2022-06-15 09:21:51] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:0s req_method:GET req_uri:/api/v1//postgres/fbb1eece-380b-420f-ae83-8c9e8cd122ec/status status_code:404]} 
+[2022-06-15 09:21:52] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:0s req_method:GET req_uri:/api/v1//postgres/fbb1eece-380b-420f-ae83-8c9e8cd122ec/status status_code:404]} 
+[2022-06-15 09:21:54] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:0s req_method:GET req_uri:/api/v1//postgres/fbb1eece-380b-420f-ae83-8c9e8cd122ec/status status_code:404]} 
+[2022-06-15 09:21:59] [INFO] [Recovery] 2022/06/15 - 09:21:59 panic recovered:
+record not found
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x199a85a)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x19dbd51)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:254 (0x19dbd3a)
+	GetStatus: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x19da5eb)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x19da5c8)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x19d931a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x19d9306)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x190cad0)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x190c738)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x190c271)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0xbe29da)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0xbde087)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x92ab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 

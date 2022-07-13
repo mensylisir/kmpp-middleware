@@ -16,7 +16,8 @@ bind:
   write_buffer_size: 1024
 logging:
   level: info
-  path: 'C:\Users\mensyli1\work\workspace\middleware\log\'
+#  path: 'C:\Users\mensyli1\work\workspace\middleware\log\'
+  path: '/var/log/middleware/'
 db:
   host: 172.30.1.74
   port: 13306

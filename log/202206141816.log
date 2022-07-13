@@ -1,0 +1,2 @@
+[2022-06-14 18:16:11] [ERROR] Unexpected type: ERROR
+ (github.com/mensylisir/kmpp-middleware/src/util/kubernetes.WatchPostgresStatus.func1: 57) {map[]} 

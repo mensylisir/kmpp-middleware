@@ -1,0 +1,102 @@
+[2022-06-15 09:44:02] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:02] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:02] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-15 09:44:02] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:02] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:04] [INFO] [Recovery] 2022/06/15 - 09:44:04 panic recovered:
+invalid character '"' after object key:value pair
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x17da9ba)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x181c4b6)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/svc/svc.go:41 (0x181c4a5)
+	UpdateServiceType: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x181a84b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x181a828)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x181957a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1819566)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x174cc30)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x174c898)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x174c3d1)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0xa229da)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0xa1e087)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x76ab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-15 09:44:20] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:20] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:20] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-15 09:44:20] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:20] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:25] [INFO] [Recovery] 2022/06/15 - 09:44:25 panic recovered:
+invalid character '"' after object key:value pair
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x28ec02a)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x293255b)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/svc/svc.go:41 (0x2950748)
+	UpdateServiceType: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x27f1edc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x294d77a)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x27f1edc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x294b724)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x27f1edc)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x28008c8)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x280039a)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x1388079)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x1381b37)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0xf3e900)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-15 09:44:46] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:46] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:46] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-15 09:44:46] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:46] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:44:50] [INFO] [Recovery] 2022/06/15 - 09:44:50 panic recovered:
+json: cannot unmarshal string into Go value of type map[string]interface {}
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x167a9ba)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x16bc50b)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/svc/svc.go:45 (0x16bc4fa)
+	UpdateServiceType: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x16ba84b)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x16ba828)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x16b957a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x16b9566)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x15ecc30)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x15ec898)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x15ec3d1)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x8c29da)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x8be087)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x60ab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 

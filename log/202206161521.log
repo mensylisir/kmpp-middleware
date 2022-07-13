@@ -1,0 +1,61 @@
+[2022-06-16 15:21:00] [INFO] [Recovery] 2022/06/16 - 15:21:00 panic recovered:
+record not found
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x161bada)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x165c511)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:264 (0x165c4fa)
+	GetPostgresOperatorName: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x165adeb)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x165adc8)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x1659b1a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1659b06)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x158dd50)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x158d9b8)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x158d4f1)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x8629da)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x85e087)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x5aab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-16 15:21:00] [INFO] [Recovery] 2022/06/16 - 15:21:00 panic recovered:
+record not found
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/errorx/errorx.go:40 (0x161bada)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/toolkits/pkg@v1.2.9/ginx/errorx.go:10 (0x165c511)
+	Dangerous: }
+C:/Users/mensyli1/work/workspace/middleware/src/controller/postgres/postgres.go:264 (0x165c4fa)
+	GetPostgresOperatorName: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x165adeb)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/logrus.go:62 (0x165adc8)
+	Logrus.func1: //结束时间
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x1659b1a)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/middleware/src/util/aop/recovery.go:94 (0x1659b06)
+	CustomRecoveryWithWriter.func1: }
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/context.go:168 (0x158dd50)
+	(*Context).Next: c.index++
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:555 (0x158d9b8)
+	(*Engine).handleHTTPRequest: c.writermem.WriteHeaderNow()
+C:/Users/mensyli1/work/workspace/mwpath/pkg/mod/github.com/gin-gonic/gin@v1.7.7/gin.go:511 (0x158d4f1)
+	(*Engine).ServeHTTP: 
+C:/install/Dev/Env/Go/src/net/http/server.go:2879 (0x8629da)
+	serverHandler.ServeHTTP: }
+C:/install/Dev/Env/Go/src/net/http/server.go:1930 (0x85e087)
+	(*conn).serve: w.cancelCtx()
+C:/install/Dev/Env/Go/src/runtime/asm_amd64.s:1581 (0x5aab60)
+	goexit: CALL	runtime·goexit1(SB)	// does not return
+[0m (github.com/mensylisir/kmpp-middleware/src/util/aop.CustomRecoveryWithWriter.func1.1: 82) {map[]} 
+[2022-06-16 15:21:49] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:9.8671ms req_method:GET req_uri:/api/v1/postgressqls?page=1&size=50&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 
+[2022-06-16 15:21:53] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:10.0613ms req_method:GET req_uri:/api/v1/postgressqls?page=1&size=50&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 
+[2022-06-16 15:21:55] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:10.7371ms req_method:GET req_uri:/api/v1/postgressqls?page=1&size=50&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 

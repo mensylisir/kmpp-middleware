@@ -11,16 +11,19 @@ import (
 	"github.com/mensylisir/kmpp-middleware/src/model"
 	"github.com/mensylisir/kmpp-middleware/src/repository"
 	"github.com/mensylisir/kmpp-middleware/src/service/cluster"
+	"github.com/mensylisir/kmpp-middleware/src/service/pod"
 	"github.com/mensylisir/kmpp-middleware/src/service/templates"
 	"github.com/mensylisir/kmpp-middleware/src/util/kubernetes"
 	"github.com/sirupsen/logrus"
 	v1 "github.com/zalando/postgres-operator/pkg/apis/acid.zalan.do/v1"
+	"regexp"
 )
 
 type PostgresService interface {
 	Get(name string) (entity.Instance, error)
 	GetById(ID string) (entity.Instance, error)
 	GetStatusById(ID string) (string, error)
+	GetPostgresOperatorPodName(clusterId string) (string, error)
 	Page(num, size int, userId string) (*entity.InstancePage, error)
 	Save(instance entity.Instance) error
 	Create(postgres entity.Postgres) (string, error)
@@ -36,6 +39,7 @@ type postgresService struct {
 	userRepo         repository.UserRepository
 	clusterService   cluster.ClusterService
 	templateService  templates.TemplatesService
+	podService       pod.PodService
 }
 
 func NewPostgresService() PostgresService {
@@ -45,6 +49,7 @@ func NewPostgresService() PostgresService {
 		userRepo:         repository.NewUserRepository(),
 		clusterService:   cluster.NewClusterService(),
 		templateService:  templates.NewTemplatesService(),
+		podService:       pod.NewPodService(),
 	}
 }
 
@@ -110,7 +115,36 @@ func (c postgresService) GetStatusById(ID string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return mo.Status, nil
+	instanceEntity := entity.Instance{}
+	instanceEntity.Instance = mo
+	status, err := kubernetes.PostgresStatus(&instanceEntity)
+	if err != nil {
+		return "", err
+	}
+	return status, nil
+}
+
+func (c postgresService) GetPostgresOperatorPodName(clusterId string) (string, error) {
+	clusterObj, err := c.clusterService.GetByID(clusterId)
+	if err != nil {
+		return "", err
+	}
+	instance := entity.Instance{}
+	instance.Cluster = clusterObj.Cluster
+	instance.ClusterID = clusterObj.ID
+	podNames, err := c.podService.GetPods(instance)
+	if err != nil {
+		return "", err
+	}
+	regexString := fmt.Sprintf("%s-[a-z0-9]{9}-[a-z0-9]{5}", constant.PostgresOperatorPrefix)
+	regex := regexp.MustCompile(regexString)
+	for _, podName := range podNames {
+		res := regex.MatchString(podName)
+		if res {
+			return podName, nil
+		}
+	}
+	return "", constant.ErrResourceNotExist
 }
 
 func (c postgresService) Page(num, size int, userID string) (*entity.InstancePage, error) {
@@ -301,7 +335,11 @@ func (c postgresService) Delete(name string) error {
 	if err != nil {
 		return err
 	}
-	return c.instanceRepo.Delete(name)
+	err = c.instanceRepo.Delete(name)
+	if err != nil {
+		return err
+	}
+	return c.userInstanceRepo.DeleteByInstanceId(instance.ID)
 }
 
 func (c postgresService) Update(instance entity.Instance) error {

@@ -16,7 +16,7 @@ type CloudStorageClient interface {
 }
 
 func NewCloudStorageClient(vars map[string]interface{}) (CloudStorageClient, error) {
-	if vars["type"] == constant.MINIO {
+	if vars["type"] == constant.Minio {
 		return client.NewMinioClient(vars)
 	}
 	return nil, errors.New(constant.PARAM_EMPTY)

@@ -17,7 +17,8 @@ type Config struct {
 func Init() {
 	viper.SetConfigName("app")
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath("C:\\Users\\mensyli1\\work\\workspace\\middleware\\conf")
+	//viper.AddConfigPath("C:\\Users\\mensyli1\\work\\workspace\\middleware\\conf")
+	viper.AddConfigPath("/etc/middleware")
 	err := viper.ReadInConfig()
 	if err != nil {
 		return

@@ -27,6 +27,8 @@ func (c instanceRepository) Get(name string) (model.Instance, error) {
 	var instance model.Instance
 	if err := db.DB.
 		Where("name = ?", name).
+		Preload("Cluster").
+		Preload("Template").
 		Find(&instance).Error; err != nil {
 		return instance, err
 	}
@@ -37,6 +39,8 @@ func (c instanceRepository) GetByMap(values map[string]interface{}) (model.Insta
 	var instance model.Instance
 	if err := db.DB.
 		Where("? = ?", values).
+		Preload("Cluster").
+		Preload("Template").
 		Find(&instance).Error; err != nil {
 		return instance, err
 	}
@@ -47,6 +51,8 @@ func (c instanceRepository) GetByID(ID string) (model.Instance, error) {
 	var instance model.Instance
 	if err := db.DB.
 		Where("id = ?", ID).
+		Preload("Cluster").
+		Preload("Template").
 		Find(&instance).Error; err != nil {
 		return instance, err
 	}

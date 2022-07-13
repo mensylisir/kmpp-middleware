@@ -48,32 +48,6 @@ func GetPods(ctx *gin.Context) {
 	ginx.NewRender(ctx).Data(pods, nil)
 }
 
-// 获取Pod的日志
-// @Tags 获取Pod的日志
-// @Summary: 获取Pod的日志
-// @Description: 获取Pod的日志
-// @Accept json
-// @Param Authorization	header string true "Bearer 31a165baebe6dec616b1f8f3207b4273"
-// @Param   cluster_id     query    string     true        "集群ID"
-// @Param   namespace     query    string     true        "命名空间"
-// @Param   name     query    string     true        "pod名称"
-// @Success 200 {object} string
-// @Router /api/v1/pod/log [get]
-func GetPodLogs(ctx *gin.Context) {
-	clusterID := ctx.Query("cluster_id")
-	Namespace := ctx.Query("namespace")
-	Name := ctx.Query("pod_name")
-	instance := entity.Instance{}
-	instance.ClusterID = clusterID
-	instance.Namespace = Namespace
-	instance.Name = Name
-	logs, err := podController.PodService.GetPogLog(instance)
-	if err != nil {
-		ginx.Dangerous(err)
-	}
-	ginx.NewRender(ctx).Data(logs, nil)
-}
-
 // 获取Pod的状态
 // @Tags 获取Pod的状态
 // @Summary: 获取Pod的状态

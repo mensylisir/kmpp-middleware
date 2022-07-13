@@ -43,7 +43,7 @@ const (
 	S3    = "S3"
 	OSS   = "OSS"
 	Sftp  = "SFTP"
-	MINIO = "MINIO"
+	Minio = "MINIO"
 )
 
 var (
@@ -58,6 +58,7 @@ var (
 	ErrEmailNotMatch     = errors.New("EMAIL_NOT_MATCH")
 	ErrNameOrPasswordErr = errors.New("NAME_PASSWORD_ERROR")
 	ErrResourceExist     = errors.New("RESOURCE_EXISTS")
+	ErrResourceNotExist  = errors.New("RESOURCE_NOT_EXISTS")
 )
 
 const (
@@ -67,4 +68,22 @@ const (
 const (
 	Local = "LOCAL"
 	Ldap  = "LDAP"
+)
+
+const (
+	ContainersReady string = "ContainersReady"
+	PodInitialized  string = "Initialized"
+	PodReady        string = "Ready"
+	PodScheduled    string = "PodScheduled"
+)
+
+const (
+	ConditionTrue    string = "True"
+	ConditionFalse   string = "False"
+	ConditionUnknown string = "Unknown"
+)
+
+const (
+	PostgresOperatorNamespace = "default"
+	PostgresOperatorPrefix    = "postgres-operator"
 )

@@ -21,7 +21,7 @@ const (
 )
 
 const (
-	releaseMigrationDir = "/usr/local/lib/mw/migration"
+	releaseMigrationDir = "/usr/local/lib/middleware/migration"
 	localMigrationDir   = "./migration"
 )
 

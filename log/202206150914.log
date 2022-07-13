@@ -1,0 +1,6 @@
+[2022-06-15 09:14:13] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:14:13] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:14:13] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-15 09:14:13] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:14:13] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 09:14:41] [ERROR] postgres-operator-5847d7cd7-4x5pp GetLog error (github.com/mensylisir/kmpp-middleware/src/util/kubernetes.GetLogs.func1: 16) {map[]} 

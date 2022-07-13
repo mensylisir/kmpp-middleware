@@ -2,7 +2,6 @@ package kubernetes
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"github.com/mensylisir/kmpp-middleware/src/db"
 	"github.com/mensylisir/kmpp-middleware/src/entity"
@@ -61,11 +60,10 @@ func EditServiceType(instance *entity.Instance) error {
 	}
 
 	patches := fmt.Sprintf("{\"spec\": {\"type\": \"%s\"}}", instance.ServiceType)
-	payloadBYtes, err := json.Marshal(patches)
 	if err != nil {
 		return err
 	}
-	_, err = client.CoreV1().Services(instance.Namespace).Patch(context.TODO(), instance.Name, types.StrategicMergePatchType, payloadBYtes, metav1.PatchOptions{})
+	_, err = client.CoreV1().Services(instance.Namespace).Patch(context.TODO(), instance.Name, types.StrategicMergePatchType, []byte(patches), metav1.PatchOptions{})
 	return err
 }
 

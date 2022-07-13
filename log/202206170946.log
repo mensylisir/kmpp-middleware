@@ -1,0 +1,2 @@
+[2022-06-17 09:46:00] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:17.1466ms req_method:GET req_uri:/api/v1/postgres/7c4cc5b1-b607-4d2f-a157-d9fa3307fd93/status status_code:200]} 
+[2022-06-17 09:46:30] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:16.0005ms req_method:GET req_uri:/api/v1/postgres/7c4cc5b1-b607-4d2f-a157-d9fa3307fd93/status status_code:200]} 

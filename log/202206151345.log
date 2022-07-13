@@ -1,0 +1,8 @@
+[2022-06-15 13:45:48] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 13:45:48] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 13:45:48] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-15 13:45:48] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 13:45:48] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 13:45:50] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:10.633ms req_method:GET req_uri:/api/v1/clusters?page=1&size=1000&user_id=5e81095f-3c0c-4cb2-8033-bde03d601357 status_code:200]} 
+[2022-06-15 13:45:50] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.117 latency_time:2.5717ms req_method:GET req_uri:/api/v1/template?name=postgres status_code:200]} 
+[2022-06-15 13:45:52] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:44.0143ms req_method:GET req_uri:/api/v1/postgres/operator?cluster_id=4e4036eb-5acb-44ea-9aa9-6bf24a5b9671 status_code:200]} 

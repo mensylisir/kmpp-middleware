@@ -1,0 +1,2 @@
+[2022-06-14 18:02:38] [ERROR] instance of mtest7-123 not found error: commands out of sync. You can't run this command now (github.com/mensylisir/kmpp-middleware/src/service/postgresql.postgresService.Sync: 269) {map[]} 
+[2022-06-14 18:02:38] [ERROR] gather postgres info error: commands out of sync. You can't run this command now (github.com/mensylisir/kmpp-middleware/src/cron/job.(*WatchPostgresqlInfo).Run.func1: 35) {map[]} 

@@ -1,0 +1,2 @@
+[2022-06-16 16:10:29] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-16 16:10:29] [ERROR] start phase [&{ 0    0 0}] failed reason: crypto/aes: invalid key size 0 (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 120) {map[]} 

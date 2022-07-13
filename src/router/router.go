@@ -45,8 +45,13 @@ func configRoute(r *gin.Engine, version string) {
 	httpRouter := r.Group("/api/v1")
 	configHttpRouter(httpRouter, version)
 	//
-	//websocket := r.Group("api/ws/v1")
-	//configWebsocketRouter(websocket)
+	ws := r.Group("/api/ws/v1")
+	configWebsocketRouter(ws)
+}
+
+func configWebsocketRouter(rg *gin.RouterGroup) {
+	rg.Use(aop.Cors())
+	rg.GET("/postgres/logs", postgres.GetPodLogs)
 }
 
 func configHttpRouter(rg *gin.RouterGroup, version string) {
@@ -141,7 +146,7 @@ func configHttpRouter(rg *gin.RouterGroup, version string) {
 	rg.GET("/instance", instance.GetInstanceByName)
 
 	rg.GET("/pods", pod.GetPods)
-	rg.GET("/pod/logs", pod.GetPodLogs)
+	//rg.GET("/pod/logs", pod.GetPodLogs)
 	rg.GET("/pod/status", pod.GetPodStatus)
 	rg.GET("/pods/status", pod.GetPodsStatus)
 
@@ -154,6 +159,7 @@ func configHttpRouter(rg *gin.RouterGroup, version string) {
 	rg.PATCH("/postgres", postgres.Update)
 	rg.DELETE("/postgres", postgres.Delete)
 	rg.POST("/postgres/:postgres_id", postgres.Edit)
+	rg.GET("/postgres/operator", postgres.GetPostgresOperatorName)
 
 	rg.PATCH("/svc", svc.UpdateServiceType)
 }

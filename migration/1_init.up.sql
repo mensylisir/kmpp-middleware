@@ -1,7 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `mw`;
-
-use mw;
-
 CREATE TABLE IF NOT EXISTS `rdev_user` (
     `created_at` datetime DEFAULT NULL,
     `updated_at` datetime DEFAULT NULL,
@@ -21,7 +17,6 @@ CREATE TABLE  IF NOT EXISTS  rdev_instance (
     name varchar(64) not null,
     type varchar(64) not null,
     cluster_id varchar(64) not null,
---     template_id varchar(64) not null,
     namespace varchar(64) not null,
     count         int         not null,
     request_cpu           varchar(64) not null,

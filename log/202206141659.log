@@ -1,0 +1,8 @@
+[2022-06-14 16:59:05] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:0s req_method:GET req_uri:/api/ws/v1/pod/logs status_code:404]} 
+[2022-06-14 16:59:07] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:0s req_method:GET req_uri:/api/ws/v1/pod/logs status_code:404]} 
+[2022-06-14 16:59:08] [INFO]  (github.com/mensylisir/kmpp-middleware/src/util/aop.Logrus.func1: 83) {map[client_ip:172.30.1.74 latency_time:0s req_method:GET req_uri:/api/ws/v1/pod/logs status_code:404]} 
+[2022-06-14 16:59:19] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-14 16:59:19] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-14 16:59:19] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-14 16:59:19] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-14 16:59:19] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 

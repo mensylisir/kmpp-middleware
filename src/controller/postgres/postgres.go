@@ -2,21 +2,31 @@ package postgres
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
+	"github.com/mensylisir/kmpp-middleware/src/constant"
 	"github.com/mensylisir/kmpp-middleware/src/entity"
+	"github.com/mensylisir/kmpp-middleware/src/service/pod"
 	"github.com/mensylisir/kmpp-middleware/src/service/postgresql"
+	"github.com/mensylisir/kmpp-middleware/src/util/aop"
 	"github.com/toolkits/pkg/ginx"
+	"regexp"
 	"strconv"
+	"strings"
 )
 
 type PostgresController struct {
 	Ctx             context.Context
 	PostgresService postgresql.PostgresService
+	PodService      pod.PodService
 }
 
 func NewPostgresController() *PostgresController {
 	return &PostgresController{
 		PostgresService: postgresql.NewPostgresService(),
+		PodService:      pod.NewPodService(),
 	}
 }
 
@@ -56,24 +66,6 @@ func Get(ctx *gin.Context) {
 func GetById(ctx *gin.Context) {
 	instanceId := ctx.Param("postgres_id")
 	instanceObj, err := postgresController.PostgresService.GetById(instanceId)
-	if err != nil {
-		ginx.Dangerous(err)
-	}
-	ginx.NewRender(ctx).Data(instanceObj, nil)
-}
-
-// 根据postgresql ID获取postgres状态
-// @Tags 根据postgresql ID获取postgres状态
-// @Summary: 根据postgresql ID获取postgres状态
-// @Description: 根据postgresql ID获取postgres状态
-// @Accept json
-// @Param Authorization	header string true "Bearer 31a165baebe6dec616b1f8f3207b4273"
-// @Param   postgres_id     query    string     true        "postgresql实例ID"
-// @Success 200
-// @Router /api/v1/postgres/:postgres_id/status [get]
-func GetStatus(ctx *gin.Context) {
-	instanceId := ctx.Query("instance_id")
-	instanceObj, err := postgresController.PostgresService.GetStatusById(instanceId)
 	if err != nil {
 		ginx.Dangerous(err)
 	}
@@ -211,4 +203,82 @@ func Edit(ctx *gin.Context) {
 		ginx.Dangerous(err)
 	}
 	ginx.NewRender(ctx).Data(nil, nil)
+}
+
+// 获取Pod的日志
+// @Tags 获取Pod的日志
+// @Summary: 获取Pod的日志
+// @Description: 获取Pod的日志
+// @Accept json
+// @Param Authorization	header string true "Bearer 31a165baebe6dec616b1f8f3207b4273"
+// @Param   cluster_id     query    string     true        "集群ID"
+// @Param   namespace     query    string     true        "命名空间"
+// @Param   name     query    string     true        "pod名称"
+// @Success 200 {object} string
+// @Router /api/ws/v1/pod/log [get]
+func GetPodLogs(ctx *gin.Context) {
+	var postgresLog entity.PostgresLog
+	ws, err := aop.UpGrader.Upgrade(ctx.Writer, ctx.Request, nil)
+	if err != nil {
+		ws.WriteMessage(websocket.TextMessage, []byte(err.Error()))
+	}
+	err = ws.ReadJSON(&postgresLog)
+	if err != nil {
+		ws.WriteMessage(websocket.TextMessage, []byte(err.Error()))
+	}
+	log := make(chan string)
+	operatorInstance := postgresLog.Instance
+	operatorInstance.Name = postgresLog.OperatorName
+	operatorInstance.Namespace = postgresLog.OperatorNamespace
+	postgresController.PodService.GetPogLog(operatorInstance, log)
+	//logMap := make(map[string]string)
+	logFormat := entity.LogFormat{}
+	for {
+		data := <-log
+		cn := fmt.Sprintf("%s/%s", postgresLog.Namespace, postgresLog.Name)
+		if ok := strings.Contains(data, cn); ok {
+			timeRegex := regexp.MustCompile("time=\"(.*)\"\\s*?level")
+			logFormat.Time = timeRegex.FindStringSubmatch(data)[1]
+			levelRegex := regexp.MustCompile("level=(.*)\\s+?msg")
+			logFormat.Level = levelRegex.FindStringSubmatch(data)[1]
+			msgRegex := regexp.MustCompile("msg=\"(.*)\"")
+			logFormat.Msg = msgRegex.FindStringSubmatch(data)[1]
+			mJson, err := json.Marshal(logFormat)
+			if err != nil {
+				ws.WriteMessage(websocket.TextMessage, []byte(err.Error()))
+			}
+			ws.WriteMessage(websocket.TextMessage, mJson)
+		}
+		//ws.WriteMessage(websocket.TextMessage, []byte(data))
+	}
+}
+
+// 根据postgresql ID获取postgres状态
+// @Tags 根据postgresql ID获取postgres状态
+// @Summary: 根据postgresql ID获取postgres状态
+// @Description: 根据postgresql ID获取postgres状态
+// @Accept json
+// @Param Authorization	header string true "Bearer 31a165baebe6dec616b1f8f3207b4273"
+// @Param   postgres_id     query    string     true        "postgresql实例ID"
+// @Success 200
+// @Router /api/v1/postgres/:postgres_id/status [get]
+func GetStatus(ctx *gin.Context) {
+	instanceId := ctx.Param("postgres_id")
+	instanceObj, err := postgresController.PostgresService.GetStatusById(instanceId)
+	if err != nil {
+		ginx.Dangerous(err)
+	}
+	ginx.NewRender(ctx).Data(instanceObj, nil)
+}
+
+func GetPostgresOperatorName(ctx *gin.Context) {
+	clusterId := ctx.Query("cluster_id")
+	podName, err := postgresController.PostgresService.GetPostgresOperatorPodName(clusterId)
+	if err != nil {
+		ginx.Dangerous(err)
+	}
+	operatorMap := make(map[string]string)
+	operatorMap["namespace"] = constant.PostgresOperatorNamespace
+	operatorMap["pod_name"] = podName
+	ginx.NewRender(ctx).Data(operatorMap, nil)
 }

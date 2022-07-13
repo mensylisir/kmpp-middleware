@@ -9,7 +9,6 @@ import (
 	"gopkg.in/yaml.v2"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"sync"
-	"time"
 )
 
 type GatherPostgresInfoFunc func(instance *entity.Instance, wg *sync.WaitGroup)
@@ -36,8 +35,16 @@ func GetPostgresStatus(instance *entity.Instance, wg *sync.WaitGroup) {
 	instance.Yaml = string(byteData)
 }
 
-func WatchPostgresStatus(instance *entity.Instance, wg *sync.WaitGroup) {
-	defer wg.Done()
+func PostgresStatus(instance *entity.Instance) (string, error) {
+	postgres, err := GetPostgres(instance)
+	if err != nil {
+		return "", err
+	}
+	instance.Status = postgres.Status.PostgresClusterStatus
+	return instance.Status, nil
+}
+
+func WatchPostgresStatus(instance *entity.Instance, status chan string) {
 	client, err := NewPostgresqlClient(&Config{
 		ApiServer: instance.Cluster.ApiServer,
 		Token:     instance.Cluster.Token,
@@ -59,9 +66,9 @@ func WatchPostgresStatus(instance *entity.Instance, wg *sync.WaitGroup) {
 				return
 			}
 			instance.Status = obj.Status.PostgresClusterStatus
+			status <- instance.Status
 		}
 	}()
-	time.Sleep(5 * time.Second)
 }
 
 func GetPostgresSVC(instance *entity.Instance, wg *sync.WaitGroup) {

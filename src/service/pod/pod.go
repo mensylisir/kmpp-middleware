@@ -4,11 +4,12 @@ import (
 	"github.com/mensylisir/kmpp-middleware/src/entity"
 	"github.com/mensylisir/kmpp-middleware/src/service/cluster"
 	"github.com/mensylisir/kmpp-middleware/src/util/kubernetes"
+	v1 "k8s.io/api/core/v1"
 )
 
 type PodService interface {
 	GetPods(instance entity.Instance) ([]string, error)
-	GetPogLog(instance entity.Instance) (string, error)
+	GetPogLog(instance entity.Instance, log chan string)
 	GetPodStatus(instance entity.Instance) (*entity.PodStatus, error)
 	GetPodsStatus(instance entity.Instance) ([]entity.PodStatus, error)
 }
@@ -32,13 +33,13 @@ func (c podService) GetPods(instance entity.Instance) ([]string, error) {
 	return kubernetes.GetPods(&instance)
 }
 
-func (c podService) GetPogLog(instance entity.Instance) (string, error) {
+func (c podService) GetPogLog(instance entity.Instance, log chan string) {
 	clusterObj, err := c.clusterService.GetByID(instance.ClusterID)
 	if err != nil {
-		return "", err
+		log <- err.Error()
 	}
 	instance.Cluster = clusterObj.Cluster
-	return kubernetes.GetLogs(&instance)
+	go kubernetes.GetLogs(&instance, log)
 }
 
 func (c podService) GetPodStatus(instance entity.Instance) (*entity.PodStatus, error) {
@@ -57,4 +58,8 @@ func (c podService) GetPodsStatus(instance entity.Instance) ([]entity.PodStatus,
 	}
 	instance.Cluster = clusterObj.Cluster
 	return kubernetes.GetPodsStatus(&instance)
+}
+
+func (c podService) Get(instance entity.Instance) (*v1.Pod, error) {
+	return kubernetes.GetPod(&instance)
 }

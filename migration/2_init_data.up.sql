@@ -1,4 +1,4 @@
-INSERT INTO `mw`.`rdev_user`(`created_at`,
+INSERT INTO `middleware`.`rdev_user`(`created_at`,
                              `updated_at`,
                              `id`,
                              `name`,

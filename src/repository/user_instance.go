@@ -9,7 +9,8 @@ import (
 type UserInstanceRepository interface {
 	Get(userID string) ([]model.UserInstance, error)
 	Save(item *model.UserInstance) error
-	Delete(name string) error
+	Delete(UserID string) error
+	DeleteByInstanceId(instanceId string) error
 	Update(ID string, values map[string]interface{}) error
 }
 
@@ -40,11 +41,17 @@ func (u userInstanceRepository) Save(item *model.UserInstance) error {
 }
 
 func (u userInstanceRepository) Delete(UserID string) error {
-	user, err := u.Get(UserID)
-	if err != nil {
-		return err
+	userInstance := model.UserInstance{
+		UserID: UserID,
 	}
-	return db.DB.Delete(&user).Error
+	return db.DB.Delete(&userInstance).Error
+}
+
+func (u userInstanceRepository) DeleteByInstanceId(instanceId string) error {
+	userInstance := model.UserInstance{
+		InstanceID: instanceId,
+	}
+	return db.DB.Delete(&userInstance).Error
 }
 
 func (u userInstanceRepository) Update(ID string, values map[string]interface{}) error {

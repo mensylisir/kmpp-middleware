@@ -1,0 +1,6 @@
+[2022-06-15 08:47:12] [INFO] start phase [encrypt] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 08:47:12] [INFO] start phase [db] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 08:47:12] [INFO] no databases change,skip migrate (github.com/mensylisir/kmpp-middleware/src/migrate.(*InitMigrateDBPhase).Init: 75) {map[]} 
+[2022-06-15 08:47:12] [INFO] start phase [migrate] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 08:47:12] [INFO] start phase [cron] success (github.com/mensylisir/kmpp-middleware/src/server.Server.initialize: 123) {map[]} 
+[2022-06-15 08:47:39] [ERROR] Get "https://192.168.111.100:6443/apis/acid.zalan.do/v1/namespaces/mtest7/postgresqls?watch=true": dial tcp 192.168.111.100:6443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. (github.com/mensylisir/kmpp-middleware/src/util/kubernetes.WatchPostgresStatus: 50) {map[]} 
